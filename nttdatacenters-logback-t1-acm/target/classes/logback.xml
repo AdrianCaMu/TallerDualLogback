@@ -1,0 +1,62 @@
+<configuration debug="false">
+
+	<!-- VARIABLES -->
+	<timestamp key="varDate" datePattern="dd-MM-yyyy" />
+	<property name="iniciales" value="ACM" />
+	
+	<!-- MOSTRAR LOGS EN CONSOLA -->
+	<appender name="ConsoleLog"
+		class="ch.qos.logback.core.ConsoleAppender">
+
+		<encoder
+			class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+
+		<!-- MOSTRAR LOG CON LAYOUT PERSONALIZADO -->
+			<layout class="layout.LayoutTaller">
+				<prefix>ACM</prefix>
+				<printThreadName>false</printThreadName>
+			</layout>
+
+		</encoder>
+	</appender>
+	
+	<!-- GE>NERAR FICHEROS CON LOGS -->
+	<appender name="FileLog"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		
+		<!-- NMOMBRE FICHERO -->
+		<file>.//assets//log${iniciales}-${varDate}.log</file>
+		
+		<!-- POLITICA NUMERO FICHEROS (zip) -->
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>.//assets//log${iniciales}-${varDate}.%i.log.zip</fileNamePattern>
+			
+			<!-- CANTIDAD DE FICHEROS -->
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+
+		<!-- PESO DE CADA FICHERO ANTES DE SALTAR -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>50KB</maxFileSize>
+		</triggeringPolicy>
+		
+		<!-- MOSTRAR LOG CON LAYOUT PERSONALIZADO -->
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="layout.LayoutTaller">
+				<prefix>ACM</prefix>
+				<printThreadName>false</printThreadName>
+			</layout>
+		</encoder>
+	</appender>
+
+	<!-- MOSTRAR TUBERIAS DE CONSOLA Y FICHERO A NIVEL DEBUG -->
+	<root level="DEBUG">
+		<appender-ref ref="FileLog" />
+		<appender-ref ref="ConsoleLog" />
+
+	</root>
+
+</configuration>

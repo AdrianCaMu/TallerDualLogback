@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>NTTDATA</groupId>
+	<artifactId>nttdatacenters-logback-t1-acm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Adrián Cámara Muñoz</name>
+	<developers>
+		<developer>
+			<id>acamu</id>
+			<name>Adrián Cámara Muñoz</name>
+			<email>acamaram@emeal.nttdata.com</email>
+			<organization>NTT DATA</organization>
+			<roles>
+				<role>Estudiante dual</role>
+			</roles>
+		</developer>
+	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<slf4j.version>1.6.6</slf4j.version>
+		<logback.version>1.0.7</logback.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+	</dependencies>
+</project>
